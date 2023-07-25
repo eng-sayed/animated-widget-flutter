@@ -1,4 +1,5 @@
-# animated_widgets
+# animated_widgets_flutter
+<h4 id="this-package-is-extended-from-another-package-called-animated_widgets-with-some-fixes">This package is extended from another package called <a href="https://pub.dev/packages/animated_widgets">Animated_widgets</a> with some fixes</h4>
 
 Easily add animations on your screen with AnimatedWidgets.
 
