@@ -1,4 +1,4 @@
-import 'package:animated_widgets/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -127,19 +127,21 @@ class _State extends State<SizeAnimatedWidget> with TickerProviderStateMixin {
         }
       });
 
-    _animationWidth = chainTweens(widget.values.map((it) => it.width).toList()).animate(
+    _animationWidth =
+        chainTweens(widget.values.map((it) => it.width).toList()).animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
-      ..addListener(() {
-        setState(() {});
-      });
+          ..addListener(() {
+            setState(() {});
+          });
 
-    _animationHeight = chainTweens(widget.values.map((it) => it.height).toList()).animate(
+    _animationHeight =
+        chainTweens(widget.values.map((it) => it.height).toList()).animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
-      ..addListener(() {
-        setState(() {});
-      });
+          ..addListener(() {
+            setState(() {});
+          });
   }
 
   @override

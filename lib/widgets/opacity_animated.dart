@@ -1,4 +1,4 @@
-import 'package:animated_widgets/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -75,7 +75,8 @@ class OpacityAnimatedWidget extends StatefulWidget {
       delay == other.delay;
 }
 
-class _State extends State<OpacityAnimatedWidget> with TickerProviderStateMixin {
+class _State extends State<OpacityAnimatedWidget>
+    with TickerProviderStateMixin {
   AnimationController? _animationController;
   late Animation<double> _animation;
 

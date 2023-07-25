@@ -1,4 +1,4 @@
-import 'package:animated_widgets/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +62,7 @@ class TranslationAnimatedWidget extends StatefulWidget {
     this.curve = Curves.linear,
     this.animationFinished,
     required this.child,
-  })   : this._values = values,
+  })  : this._values = values,
         assert(values.length > 1);
 
   List<Offset> get values => _values;
@@ -78,7 +78,8 @@ class TranslationAnimatedWidget extends StatefulWidget {
       delay == other.delay;
 }
 
-class _State extends State<TranslationAnimatedWidget> with TickerProviderStateMixin {
+class _State extends State<TranslationAnimatedWidget>
+    with TickerProviderStateMixin {
   AnimationController? _animationController;
   late Animation<double> _translationXAnim;
   late Animation<double> _translationYAnim;

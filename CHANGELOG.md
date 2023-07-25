@@ -1,4 +1,8 @@
-## 1.1.0
+## 1.1.1+1
+
+* Dart 3 compatible
+
+## 1.1.1
 
 * Null Safety
 

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:animated_widgets/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart';
@@ -62,7 +62,7 @@ class RotationAnimatedWidget extends StatefulWidget {
     this.animationFinished,
     this.curve = Curves.linear,
     required this.child,
-  })   : this._values = values,
+  })  : this._values = values,
         assert(values.length > 1);
 
   /// An rotation animation using 2 values : enabled - disabled
@@ -111,7 +111,8 @@ class RotationAnimatedWidget extends StatefulWidget {
       delay == other.delay;
 }
 
-class _State extends State<RotationAnimatedWidget> with TickerProviderStateMixin {
+class _State extends State<RotationAnimatedWidget>
+    with TickerProviderStateMixin {
   AnimationController? _animationController;
   late Animation<double> _rotationXAnim;
   late Animation<double> _rotationYAnim;
@@ -141,33 +142,37 @@ class _State extends State<RotationAnimatedWidget> with TickerProviderStateMixin
 
   void _createAnimations() {
     _animationController?.dispose();
-    _animationController = AnimationController(duration: widget.duration, vsync: this)
-      ..addStatusListener((status) {
-        if (widget.animationFinished != null) {
-          widget.animationFinished!(widget.enabled);
-        }
-      });
+    _animationController =
+        AnimationController(duration: widget.duration, vsync: this)
+          ..addStatusListener((status) {
+            if (widget.animationFinished != null) {
+              widget.animationFinished!(widget.enabled);
+            }
+          });
 
-    _rotationXAnim = chainTweens(widget._values.map((it) => it.x).toList()).animate(
+    _rotationXAnim =
+        chainTweens(widget._values.map((it) => it.x).toList()).animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
-      ..addListener(() {
-        setState(() {});
-      });
+          ..addListener(() {
+            setState(() {});
+          });
 
-    _rotationYAnim = chainTweens(widget._values.map((it) => it.y).toList()).animate(
+    _rotationYAnim =
+        chainTweens(widget._values.map((it) => it.y).toList()).animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
-      ..addListener(() {
-        setState(() {});
-      });
+          ..addListener(() {
+            setState(() {});
+          });
 
-    _rotationZAnim = chainTweens(widget._values.map((it) => it.z).toList()).animate(
+    _rotationZAnim =
+        chainTweens(widget._values.map((it) => it.z).toList()).animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
-      ..addListener(() {
-        setState(() {});
-      });
+          ..addListener(() {
+            setState(() {});
+          });
     _updateAnimationState();
   }
 

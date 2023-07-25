@@ -4,12 +4,12 @@ PODS:
   - Flutter (1.0.0)
 
 DEPENDENCIES:
-  - animated_widgets (from `.symlinks/plugins/animated_widgets/ios`)
+  - animated_widgets (from `.symlinks/plugins/animated_widgets_flutter/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
 
 EXTERNAL SOURCES:
   animated_widgets:
-    :path: ".symlinks/plugins/animated_widgets/ios"
+    :path: ".symlinks/plugins/animated_widgets_flutter/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
 

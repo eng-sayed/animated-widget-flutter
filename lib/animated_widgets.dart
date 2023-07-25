@@ -6,4 +6,3 @@ export "widgets/size_animated.dart";
 export "widgets/custom_animated.dart";
 export "widgets/shake_animated_widget.dart";
 export "tap/tap_scale_animated.dart";
-export "tap/tap_scale_animated.dart";

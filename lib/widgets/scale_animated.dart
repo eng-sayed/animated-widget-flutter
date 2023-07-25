@@ -1,4 +1,4 @@
-import 'package:animated_widgets/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:animated_widgets/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
 import 'package:flutter/material.dart';
 
 class TapScaleAnimated extends StatefulWidget {
@@ -41,7 +41,8 @@ class _State extends State<TapScaleAnimated>
 
     _animation = chainTweens([1.0, widget.scale]).animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
-    ) as Animation<double>..addListener(() {
+    ) as Animation<double>
+      ..addListener(() {
         setState(() {});
       });
   }
@@ -66,9 +67,9 @@ class _State extends State<TapScaleAnimated>
         await Future.delayed(Duration(
             milliseconds: (widget.duration.inMilliseconds * 0.9).floor()));
         _animationController!.reverse();
-        if (widget.onTap != null) {
-          widget.onTap();
-        }
+        //if (widget.onTap != null) {
+        widget.onTap();
+        // }
       },
       child: Transform.scale(
         scale: _animation.value,

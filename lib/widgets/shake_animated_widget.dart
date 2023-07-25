@@ -1,6 +1,5 @@
-import 'package:animated_widgets/core/chain_tweens.dart';
-import 'package:animated_widgets/widgets/rotation_animated.dart';
-import 'package:flutter/foundation.dart';
+import 'package:animated_widgets_flutter/core/chain_tweens.dart';
+import 'package:animated_widgets_flutter/widgets/rotation_animated.dart';
 import 'package:flutter/material.dart';
 
 class ShakeAnimatedWidget extends StatefulWidget {
@@ -36,7 +35,9 @@ class ShakeAnimatedWidget extends StatefulWidget {
 
   //except the boolean `enabled`
   bool isAnimationEqual(ShakeAnimatedWidget other) =>
-      shakeAngle == other.shakeAngle && duration == other.duration && curve == other.curve;
+      shakeAngle == other.shakeAngle &&
+      duration == other.duration &&
+      curve == other.curve;
 }
 
 class _State extends State<ShakeAnimatedWidget> with TickerProviderStateMixin {
@@ -69,16 +70,18 @@ class _State extends State<ShakeAnimatedWidget> with TickerProviderStateMixin {
   void _createAnimations() {
     _animationController?.stop();
     _animationController?.dispose();
-    _animationController = AnimationController(duration: widget.duration, vsync: this)
-      ..addStatusListener((status) {
-        //restart
-        if (status == AnimationStatus.completed) {
-          _animationController!.forward();
-        }
-      });
+    _animationController =
+        AnimationController(duration: widget.duration, vsync: this)
+          ..addStatusListener((status) {
+            //restart
+            if (status == AnimationStatus.completed) {
+              _animationController!.forward();
+            }
+          });
 
     _rotationXAnim =
-        chainTweens([0.0, widget.shakeAngle.x, 0.0, -widget.shakeAngle.x, 0.0]).animate(
+        chainTweens([0.0, widget.shakeAngle.x, 0.0, -widget.shakeAngle.x, 0.0])
+            .animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
           ..addListener(() {
@@ -86,7 +89,8 @@ class _State extends State<ShakeAnimatedWidget> with TickerProviderStateMixin {
           });
 
     _rotationYAnim =
-        chainTweens([0.0, widget.shakeAngle.y, 0.0, -widget.shakeAngle.y, 0.0]).animate(
+        chainTweens([0.0, widget.shakeAngle.y, 0.0, -widget.shakeAngle.y, 0.0])
+            .animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
           ..addListener(() {
@@ -94,7 +98,8 @@ class _State extends State<ShakeAnimatedWidget> with TickerProviderStateMixin {
           });
 
     _rotationZAnim =
-        chainTweens([0.0, widget.shakeAngle.z, 0.0, -widget.shakeAngle.z, 0.0]).animate(
+        chainTweens([0.0, widget.shakeAngle.z, 0.0, -widget.shakeAngle.z, 0.0])
+            .animate(
       CurvedAnimation(parent: _animationController!, curve: widget.curve),
     ) as Animation<double>
           ..addListener(() {
